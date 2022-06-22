@@ -1,5 +1,9 @@
 import string
 import ads
+import pandas as pd
+import glob
+import os 
+import operator 
 
 def get_abstract_words(author_ORCID):
   """Returns a list of every single word in the abstracts of the author.
@@ -27,3 +31,35 @@ def get_abstract_words(author_ORCID):
   allwords_lower = [word.lower() for word in allwords_nopunc]
 
   return allwords_lower
+
+
+def vibe_check(wordlist, stop_terms, reddit_vibe):
+  """Returns an integer vibe value for a given list of abstract words, 
+  stoplist, and sentiment analysis reddit file.
+
+  inputs: 
+    wordlist = list of abstract words
+    stop_terms: list of words to ignore ("the", "a", "of"....)
+    reddit_vibe: string corresponding to tsv filename in the /subreddits folder
+
+  """
+  # first remove the stop terms
+  for st in stop_terms:
+      wordlist = [i for i in wordlist if i != st]
+
+  # make abstract terms and counts DataFrame
+  df_abs = pd.DataFrame(wordlist, columns=['term']).value_counts('term').reset_index().rename(columns={0: 'count'})
+
+  # make reddit comparison data frame
+  df_reddit = pd.read_csv('subreddits/'+ reddit_vibe + '.tsv', sep='\t', header=None, names=['term', 'mean_sentiment', 'std_sentiment'])
+
+  # find intersection of two data frames based on 'term' column
+  df_int = pd.merge(df_abs, df_reddit, how='inner', on=['term'])
+
+  # calculate weighted 'vibe' column
+  df_int['vibe'] = df_int['count'] * df_int['mean_sentiment']
+
+  # retrun overall vibe value as an integer
+  return(int(df_int['vibe'].sum()))
+
+  
