@@ -1,10 +1,8 @@
 Basic functionality:
 
-1. Read in Abstract (TODO: Steph found edge cases (empty abstracts?))
-2. need stoplist of words (TODO: update total list)
-3. Get unique counts-list for every word in Abstract (done!)
-4. Correlate that with some example sentiment analysis output  (TODO: Luna write vibe_check())
-5. Visualize (TODO: Mireya get watercolors working)
+1. need stoplist of words (TODO: update total list)
+2. Correlate that with some example sentiment analysis output  (TODO: Luna write vibe_check())
+3. Visualize (TODO: Mireya get watercolors working)
 
 Advanced:
 1. correlate abbreviations with actual terms 
