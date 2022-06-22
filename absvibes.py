@@ -64,6 +64,15 @@ def vibe_check(wordlist, stop_terms, reddit_vibe):
 
 
 def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
+  """Returns a list of 3 most- and least-positive vibes and their values.
+
+  inputs: 
+    wordlist = list of abstract words
+    stop_terms: list of words to ignore ("the", "a", "of"....)
+    subreddits: list of subreddits to source vibes from
+    reddit2vibe: dictionary converting subreddit names to assigned vibes
+
+  """
     # create dictionary of vibes and values
     vibe_dict = {}
     for sr in subreddits:
