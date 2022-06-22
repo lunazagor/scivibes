@@ -62,4 +62,21 @@ def vibe_check(wordlist, stop_terms, reddit_vibe):
   # retrun overall vibe value as an integer
   return(int(df_int['vibe'].sum()))
 
+
+def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
+    # create dictionary of vibes and values
+    vibe_dict = {}
+    for sr in subreddits:
+        vibe_num = vibe_check(wordlist, stop_terms, sr)
+        vibe = reddit2vibe[sr]
+        vibe_dict[vibe] = vibe_num
+
+    # sort dictionary by value
+    vibe_dict = sorted(vibe_dict.items(), key=operator.itemgetter(1))    
+
+    # return most and least vibes
+    least = vibe_dict[0:3]
+    most = vibe_dict[-3:]
+    return([most, least])
+
   
