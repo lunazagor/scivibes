@@ -1,4 +1,4 @@
-import cairo, sys, argparse, copy, math, random
+import cairo, copy, math, random
 
 float_gen = lambda a, b: random.uniform(a, b)
 
@@ -152,37 +152,22 @@ def view_vibes(vibe_score, name):
         none; two png images are saved to the scivibes folder.
 
     """
-    #additional arguements that can be used to modify the result
-    parser = argparse.ArgumentParser()
     #size of image
-    parser.add_argument("--width", default=1000, type=int)
-    parser.add_argument("--height", default=1500, type=int)
+    width=1000
+    height=1500
     #initial deformation placed on the base shape before layering
-    parser.add_argument("-i", "--initial", default=120, type=int)
+    initial=120
     #deviation for each layer 
-    parser.add_argument("-d", "--deviation", default=50, type=int)
+    deviation=50
     #how many times shape is deformed before layering
-    parser.add_argument("-bd", "--basedeforms", default=1, type=int)
+    basedeforms=1
     #how many time deformation occurs during layering
-    parser.add_argument("-fd", "--finaldeforms", default=3, type=int)
+    finaldeforms=3
     #min and max number of layers per octagon
-    parser.add_argument("-mins", "--minshapes", default=20, type=int)
-    parser.add_argument("-maxs", "--maxshapes", default=25, type=int)
+    minshapes=20
+    maxshapes=25
     #how transparent octagons are: high number is more clear 
-    parser.add_argument("-sa", "--shapealpha", default=.02, type=float)
-    args = parser.parse_args()
-
-    width, height = args.width, args.height
-    initial = args.initial
-    deviation = args.deviation
-
-    basedeforms = args.basedeforms
-    finaldeforms = args.finaldeforms
-
-    minshapes = args.minshapes
-    maxshapes = args.maxshapes
-
-    shapealpha = args. shapealpha
+    shapealpha=.02
 
     #create image surface being drawn on
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
