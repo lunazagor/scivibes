@@ -20,9 +20,9 @@ def color_picker(vibe_score):
     """
 
     #dictionary defining the vibes and the colors corresponding to their rank
-    color_samples = {'geek': {'High': (24,106,59), 'Med': (46,204,113), 'Low': (213, 245, 227)},
+    color_samples = {'geeky': {'High': (24,106,59), 'Med': (46,204,113), 'Low': (213, 245, 227)},
     'fantasy': {'High': (74, 35, 90), 'Med': (165, 105, 189), 'Low': (232, 218, 239)},
-    'anarcho Capitalism': {'High': (66, 73, 73), 'Med': (127, 140, 141), 'Low': (242, 244, 244)},
+    'anarcho-capitalist': {'High': (66, 73, 73), 'Med': (127, 140, 141), 'Low': (242, 244, 244)},
     'cursed': {'High': (176, 58, 46), 'Med': (231, 76, 60), 'Low': (245, 183, 177)},
     'musical': {'High': (81, 46, 95), 'Med': (155, 89, 182), 'Low': (215, 189, 226)},
     'Tumblr': {'High': (21, 67, 96), 'Med': (41, 128, 185), 'Low': (169, 204, 227)},
