@@ -1,11 +1,27 @@
 import cairo, sys, argparse, copy, math, random
 
+# TODO: Remove name and vibe_score when merging things
 name = "StephBoss"
-
 vibe_score = [[('anime', 367), ('musical', 445), ('science', 451)],
  [('cringe', -71), ('Tumblr', -56), ('wholesome', -51)]]
 
+float_gen = lambda a, b: random.uniform(a, b)
+
 def color_picker(vibe_score):
+
+    """
+    Color Picker: selects colors corresponding to the vibe and their rank (top vibe has darkest/most
+    intense color).
+
+    Args:
+        vibe_score (list of lists of tuples): A list containing two lists (the top 3 vibes and the 
+        bottom 3 vibes). 
+
+    Returns:
+        (array): 6 arrays containg the rgb codes for colors used in the abstract art. First three
+        arrays are the top 3 vibes, second three are the 3 vibes (anti_vibes). 
+
+    """
 
     color_samples = {'geek': {'High': (24,106,59), 'Med': (46,204,113), 'Low': (213, 245, 227)},
     'fantasy': {'High': (74, 35, 90), 'Med': (165, 105, 189), 'Low': (232, 218, 239)},
@@ -35,7 +51,6 @@ def color_picker(vibe_score):
 
     return c_1,c_2,c_3,c_4,c_5,c_6
 
-float_gen = lambda a, b: random.uniform(a, b)
 # colors = []
 # for i in range(15):
 #     colors.append((float_gen(.4, .75), float_gen(.4, .75), float_gen(.4, .75)))
