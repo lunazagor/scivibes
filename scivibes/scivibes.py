@@ -7,6 +7,9 @@ import os
 import operator 
 import re
 
+scivibes_dir = os.path.dirname(__file__)
+datadir = os.path.join(scivibes_dir, '')
+
 def flatten_list(unflat_list):
     """Flattens list.
     
@@ -76,7 +79,7 @@ def replace_abbreviations_with_words(wordlist):
     """
 
     abbreviations = {}
-    with open("abbreviations.txt") as f:
+    with open(datadir + "abbreviations.txt") as f:
         for line in f:
             (key, val) = line.split(",")
             val = val.rstrip()
@@ -115,7 +118,7 @@ def vibe_check(wordlist, stop_terms, reddit_vibe):
     df_abs = pd.DataFrame(wordlist, columns=['term']).value_counts('term').reset_index().rename(columns={0: 'count'})
 
     # make reddit comparison data frame
-    df_reddit = pd.read_csv('subreddits/'+ reddit_vibe + '.tsv', sep='\t', header=None, names=['term', 'mean_sentiment', 'std_sentiment'])
+    df_reddit = pd.read_csv(scivibes_dir + '/subreddits/'+ reddit_vibe + '.tsv', sep='\t', header=None, names=['term', 'mean_sentiment', 'std_sentiment'])
 
     # find intersection of two data frames based on 'term' column
     df_int = pd.merge(df_abs, df_reddit, how='inner', on=['term'])

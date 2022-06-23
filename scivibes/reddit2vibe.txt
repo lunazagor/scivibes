@@ -1,0 +1,1 @@
+{"Anarcho_Capitalism": "anarcho-capitalist", "anime": "anime", "aww": "cute", "comicbooks": "geeky", "DnD": "fantasy", "Frozen": "Disney", "ImGoingToHellForThis": "cursed", "science": "science", "sports": "jock", "TheLastAirbender": "wholesome", "unitedkingdom": "British", "funny": "funny", "Music": "musical", "TumblrInAction": "Tumblr", "cringe": "cringe"}
