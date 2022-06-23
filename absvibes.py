@@ -7,13 +7,16 @@ def flatten_list(unflat_list):
     return [item for sublist in unflat_list for item in sublist]
 
 def get_abstract_words(author_ORCID):
-  """Returns a list of every single word in the abstracts of the author.
+  """Get all words from abstracts.
+  
+  Returns a list of every single word in the abstracts of the author. Strips punctuation, replaces common
+  abbreviations/acronyms with constituent words, and lowercases everything.
 
-  Inputs: 
-  author_ORCID: a string containing the ORCID of interest
+  Args: 
+    author_ORCID (string): a string containing the ORCID of interest
 
   Returns:
-  allwords_lower: a list of words in all abstracts in lower-case with punctuation removed and common acronyms expanded
+    list: a list of words in all abstracts in lower-case with punctuation removed and common acronyms expanded.
   """
 
   papers = list(ads.SearchQuery(orcid=author_ORCID))
