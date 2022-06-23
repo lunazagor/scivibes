@@ -1,4 +1,4 @@
-# SciVibes 1.0.0
+# SciVibes 1.0.1
 
 This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu/) abstracts!
 
