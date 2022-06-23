@@ -135,7 +135,7 @@ def deform(shape, iterations, variance):
     return shape
 
 
-def main(vibe_score, name):
+def view_vibes(vibe_score, name):
 
     """main
 
