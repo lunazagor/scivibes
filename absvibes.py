@@ -70,14 +70,18 @@ def replace_abbreviations_with_words(wordlist):
 
 
 def vibe_check(wordlist, stop_terms, reddit_vibe):
-    """Returns an integer vibe value for a given list of abstract words, 
+    """Get a singular vibe comparison with a given subreddit.
+    
+    Returns an integer vibe value for a given list of abstract words, 
     stoplist, and sentiment analysis reddit file.
 
-    inputs: 
-    wordlist = list of abstract words
-    stop_terms: list of words to ignore ("the", "a", "of"....)
-    reddit_vibe: string corresponding to tsv filename in the /subreddits folder
+    Args: 
+    wordlist (list of strings): a list of abstract words from get_abstract_words()
+    stop_terms (list of strings): a list of words to ignore ("the", "a", "of"....)
+    reddit_vibe (string): a string corresponding to tsv filename in the /subreddits folder
 
+    Returns:
+    int: a total vibe value (can be positive or negative)
     """
     # first remove the stop terms
     for st in stop_terms:
@@ -102,12 +106,14 @@ def vibe_check(wordlist, stop_terms, reddit_vibe):
 def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     """Returns a list of 3 most- and least-positive vibes and their values.
 
-    inputs: 
-    wordlist = list of abstract words
-    stop_terms: list of words to ignore ("the", "a", "of"....)
-    subreddits: list of subreddits to source vibes from
-    reddit2vibe: dictionary converting subreddit names to assigned vibes
+    Args: 
+    wordlist (list of strings): a list of abstract words from get_abstract_words()
+    stop_terms (list of strings): a list of words to ignore ("the", "a", "of"....)
+    subreddits (list of strigs): list of subreddits to source vibes from
+    reddit2vibe (dictionary): a dictionary converting subreddit names to assigned vibes
 
+    Return:
+    list: list of top 3 vibes and their values + bottom 3 vibes and their values 
     """
     # create dictionary of vibes and values
     vibe_dict = {}
@@ -124,5 +130,3 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     most = vibe_dict[-3:]
     return([most, least])
 
-
-    return wordlist_flat
