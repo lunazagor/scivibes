@@ -1,6 +1,6 @@
 ads
 pandas
-operator
-re
 werkzeug==1.0.1
 pycairo
+jupyter
+ipykernel
