@@ -1,16 +1,12 @@
 import cairo, sys, argparse, copy, math, random
 
-# TODO: Remove name and vibe_score when merging things
-name = "StephBoss"
-vibe_score = [[('anime', 367), ('musical', 445), ('science', 451)],
- [('cringe', -71), ('Tumblr', -56), ('wholesome', -51)]]
-
 float_gen = lambda a, b: random.uniform(a, b)
 
 def color_picker(vibe_score):
 
-    """
-    Color Picker: selects colors corresponding to the vibe and their rank (top vibe has darkest/most
+    """Color Picker 
+    
+    Selects colors corresponding to the vibe and their rank (top vibe has darkest/most
     intense color).
 
     Args:
@@ -23,6 +19,7 @@ def color_picker(vibe_score):
 
     """
 
+    #dictionary defining the vibes and the colors corresponding to their rank
     color_samples = {'geek': {'High': (24,106,59), 'Med': (46,204,113), 'Low': (213, 245, 227)},
     'fantasy': {'High': (74, 35, 90), 'Med': (165, 105, 189), 'Low': (232, 218, 239)},
     'anarcho Capitalism': {'High': (66, 73, 73), 'Med': (127, 140, 141), 'Low': (242, 244, 244)},
@@ -40,10 +37,12 @@ def color_picker(vibe_score):
     'science': {'High': (14, 98, 81), 'Med': (26, 188, 156), 'Low': (163, 228, 215)}
     }
     
+    #selecting the appropriate colors for each vibe
     c_1 = color_samples[vibe_score[0][0][0]]['High']
     c_2 = color_samples[vibe_score[0][1][0]]['Med']
     c_3 = color_samples[vibe_score[0][2][0]]['Low']
 
+    #selecting the appropriate colors for each antivibe
     c_4 = color_samples[vibe_score[1][0][0]]['High']
     c_5 = color_samples[vibe_score[1][1][0]]['Med']
     c_6 = color_samples[vibe_score[1][2][0]]['Low']
@@ -51,22 +50,32 @@ def color_picker(vibe_score):
 
     return c_1,c_2,c_3,c_4,c_5,c_6
 
-# colors = []
-# for i in range(15):
-#     colors.append((float_gen(.4, .75), float_gen(.4, .75), float_gen(.4, .75)))
-
-# TODO: Create a color pallete for each aesthetic 
-        # Pick color pallete based on chosen vibes
-        # this code randomly generates a watercolor piece based on randomly chosen colors from the pallete 
-
 
 def octagon(x_orig, y_orig, side):
+
+    """Octagon
+    
+    Makes an octagon shape for the watercolor splotches. 
+
+    Args:
+        x_orig (int): x-coordinate start point for octagon
+        y_orig (int): y-coordinate start point for octagon.
+        side (int): side length.
+
+    Return:
+        (list): octagon shape object.
+    
+    """
+
     x = x_orig
     y = y_orig
+
+    #shape diagonal
     d = side / math.sqrt(2)
 
     oct = []
 
+    #working around the octagon adding each side using append
     oct.append((x, y))
 
     x += side
@@ -100,23 +109,66 @@ def octagon(x_orig, y_orig, side):
     return oct
 
 def deform(shape, iterations, variance):
+
+    """ Deform
+
+    Defroms the edges of the octagon to make the shape look similar to a watercolor splotch. It moves
+    the midpoint of each side of the octagon by a certain amount determined by the variance
+
+    Args:
+        shape (list): the octagon shape (output of the octagon function)
+        iterations (int): number of times the midpoint of the side should be shifted
+        variance (float): the amount the midpoint of each side should be moved
+
+    Return: 
+        (list): deformed octagon shape 
+    
+    """
+
+    #loop through for the number of iterations
     for i in range(iterations):
+        #loop through for each side
         for j in range(len(shape)-1, 0, -1):
+            #get the midpoint for each side and shift it based on the variance
             midpoint = ((shape[j-1][0] + shape[j][0])/2 + float_gen(-variance, variance), (shape[j-1][1] + shape[j][1])/2 + float_gen(-variance, variance))
             shape.insert(j, midpoint)
     return shape
 
 
 def main(vibe_score, name):
+
+    """main
+
+    Uses the other functions (octagon, deform, and color_picker) to build the image.
+
+    Args:
+        vibe_score (list of list of tuples): list containing two lists each containing 3 tuples 
+        defining the rgb values for the top 3 vibes and lowest 3 vibes. This is the output from the
+        total_vibe_check().
+        name (string): name for the resulting image file. Images are name in the format (name_Vibe) 
+        and (name_AntiVibe)
+
+    Return:
+        none; two png images are saved to the scivibes folder.
+
+    """
+    #additional arguements that can be used to modify the result
     parser = argparse.ArgumentParser()
+    #size of image
     parser.add_argument("--width", default=1000, type=int)
     parser.add_argument("--height", default=1500, type=int)
+    #initial deformation placed on the base shape before layering
     parser.add_argument("-i", "--initial", default=120, type=int)
+    #deviation for each layer 
     parser.add_argument("-d", "--deviation", default=50, type=int)
+    #how many times shape is deformed before layering
     parser.add_argument("-bd", "--basedeforms", default=1, type=int)
+    #how many time deformation occurs during layering
     parser.add_argument("-fd", "--finaldeforms", default=3, type=int)
+    #min and max number of layers per octagon
     parser.add_argument("-mins", "--minshapes", default=20, type=int)
     parser.add_argument("-maxs", "--maxshapes", default=25, type=int)
+    #how transparent octagons are: high number is more clear 
     parser.add_argument("-sa", "--shapealpha", default=.02, type=float)
     args = parser.parse_args()
 
@@ -132,28 +184,39 @@ def main(vibe_score, name):
 
     shapealpha = args. shapealpha
 
+    #create image surface being drawn on
     ims = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
+    #context
     cr = cairo.Context(ims)
 
-
-    brightness = (0.1,0.1,0.1)
-    cr.set_source_rgb(brightness[0],brightness[1],brightness[2])
+    #background (image surface) color (bg)
+    bg = (0.1,0.1,0.1)
+    cr.set_source_rgb(bg[0],bg[1],bg[2])
+    #image surface shape
     cr.rectangle(0, 0, width, height)
     cr.fill()
 
     cr.set_line_width(1)
 
+    # selecting vibe colors
     vibe_1, vibe_2, vibe_3, vibe_4, vibe_5, vibe_6 = color_picker(vibe_score)
 
     colors = [list(vibe_1), list(vibe_2), list(vibe_3)]
     anti_colors = [list(vibe_4), list(vibe_5), list(vibe_6)]
 
+    #starting above and ending below image to prevent white spaces
+    #p rows for drawing
     for p in range(-int(height*.2), int(height*1.2), 60):
+
+        #define colors and transparancy (alpha)
         cr.set_source_rgba((random.choice(colors)[0])/255, (random.choice(colors)[1])/255, (random.choice(colors)[2])/255, shapealpha)
 
+        #create octagon shape 
         shape = octagon(random.randint(-100, width+100), p, random.randint(100, 300))
+        #create deformed octagon shape
         baseshape = deform(shape, basedeforms, initial)
 
+        #layering shapes to make art
         for j in range(random.randint(minshapes, maxshapes)):
             tempshape = copy.deepcopy(baseshape)
             layer = deform(tempshape, finaldeforms, deviation)
@@ -164,7 +227,10 @@ def main(vibe_score, name):
 
     ims.write_to_png(name+'_Vibe'+'.png')
 
+    #repeat process for lowest ranked vibes --> anti_vibes
     for p in range(-int(height*.2), int(height*1.2), 60):
+
+        #define colors and transparancy (alpha)
         cr.set_source_rgba((random.choice(anti_colors)[0])/255, (random.choice(anti_colors)[1])/255, (random.choice(anti_colors)[2])/255, shapealpha)
 
         shape = octagon(random.randint(-100, width+100), p, random.randint(100, 300))
@@ -179,6 +245,4 @@ def main(vibe_score, name):
             cr.fill()
 
     ims.write_to_png(name+'_AntiVibe'+'.png')
-
-if __name__ == "__main__":
-    main(vibe_score, name)
+    
