@@ -1,8 +1,8 @@
 # SciVibes 0.1.0
 
-This is a scientific vibe estimator based on ADS/ABS abstracts!
+This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu/) abstracts!
 
-Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, Luna Zagorac
+Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, and Luna Zagorac.
 
 
 ## Notes for running
