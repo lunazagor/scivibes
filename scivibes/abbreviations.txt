@@ -8,9 +8,9 @@ AO,adaptive optics
 ASAS,all sky automated survey
 AU,astronomical unit
 BCD,blue compact dwarf
-BCDs,blue compact dwarves
+BCDs,blue compact dwarfs
 BD,brown dwarf
-BDs,brown dwarves
+BDs,brown dwarfs
 BH,black hole
 BHs,black holes
 BHC,black hole candidate
@@ -225,7 +225,59 @@ RVs,radial velocities
 SAAO,South African Astronomical Observatory
 SB,spectroscopic binary
 SBs,spectroscopic binaries
+SDO,scattered disk object
+SDOs,scattered disk objects
+SDSS,Sloan Digital Sky Survey
+SED,spectral energy distribution
+SETI,search for extra-terrestrial intelligence
+SGR,soft gamma repeater
+SGRs,soft gamma repeaters
+SGRB,short gamma ray burst
+SGRBs,short gamma ray bursts
+SID,sudden ionospheric disturbance
+SIDs,sudden ionospheric disturbances
+SIMBAD,set of identifications measurements and bibliography for astronomical data
+SKA,square kilometer array
+SMBH,super massive black hole
+SMBHs,super massive black hole
+SMC,small magellanic cloud
+SN,signal to noise
+SNR,signal to noise ratio
+SN,supernova
+SNs,supernovae
+SNR,supernova remnant
+SNRs,supernova remnants
+SNU,solar neutrino units
+SOFIA,stratospheric observatory for infrared astronomy
+SPHERE,spectro-polarimetric high contrast exoplanet research
+SQM,strange quark matter
+SR,special relativity
+SST,spitzer space telescope
+STIS,space telescope imaging spectrograph
+STScI,Space Telescope Science Institute
+TAC,time allocation committee
+TESS,transiting exoplanet survey satellite
 TNO,trans Neptunian object
 TNOs,trans Neptunian objects
+UFO,unidentified flying object
 UHJ,ultra hot Jupiter
 UHJs,ultra hot Jupiters
+ULX,ultra luminous x-ray source
+UT,universal time
+UV,ultra violet
+VLA,very large array
+VLBA,very large baseline array
+VLT,very large telescope
+WD,white dwarf
+WDs,white dwarfs
+WDM,warm dark matter
+WIMP,weakly interacting massive particle
+WIMPs,weakly interacting massive particles
+WISE,wide-field infrared survey explorer
+WR,wolf rayet
+XN,x-ray nova
+XRF,x-ray flash
+YSG,yellow super giant star
+YSGs,yellow super giant stars
+YSO,young stellar object
+YSOs,young stellar objects

@@ -7,8 +7,23 @@ import os
 import operator 
 import re
 
+scivibes_dir = os.path.dirname(__file__)
+datadir = os.path.join(scivibes_dir, '')
+
 def flatten_list(unflat_list):
+    """Flattens list.
+    
+    Flattens a list containing sublists into a single 1D list.
+
+    Args:
+        unflat_list (list): a list containing sublists
+
+    Returns:
+        list: a flattened version of unflat_list
+
+    """
     return [item for sublist in unflat_list for item in sublist]
+
 
 def get_abstract_words(author_ORCID):
     """Get all words from abstracts.
@@ -17,10 +32,10 @@ def get_abstract_words(author_ORCID):
     abbreviations/acronyms with constituent words, and lowercases everything.
 
     Args: 
-    author_ORCID (string): a string containing the ORCID of interest
+        author_ORCID (string): a string containing the ORCID of interest
 
     Returns:
-    list: a list of words in all abstracts in lower-case with punctuation removed and common acronyms expanded.
+        list: a list of words in all abstracts in lower-case with punctuation removed and common acronyms expanded.
     """
 
     papers = list(ads.SearchQuery(orcid=author_ORCID))
@@ -50,9 +65,21 @@ def get_abstract_words(author_ORCID):
     return allwords_lower
 
 def replace_abbreviations_with_words(wordlist):
+    """Replaces abbreviations with constituent words.
+    
+    Runs through a list of words and replaces common astronomy acronyms and
+    abbreviations with their constituent words.
+
+    Args:
+        wordlist (list): A list of words.
+    
+    Returns:
+        list: The same list of words with common acronyms and abbreviations
+            replaced by their constituent words.
+    """
 
     abbreviations = {}
-    with open("abbreviations.txt") as f:
+    with open(datadir + "abbreviations.txt") as f:
         for line in f:
             (key, val) = line.split(",")
             val = val.rstrip()
@@ -70,14 +97,18 @@ def replace_abbreviations_with_words(wordlist):
 
 
 def vibe_check(wordlist, stop_terms, reddit_vibe):
-    """Returns an integer vibe value for a given list of abstract words, 
+    """Get a singular vibe comparison with a given subreddit.
+    
+    Returns an integer vibe value for a given list of abstract words, 
     stoplist, and sentiment analysis reddit file.
 
-    inputs: 
-    wordlist = list of abstract words
-    stop_terms: list of words to ignore ("the", "a", "of"....)
-    reddit_vibe: string corresponding to tsv filename in the /subreddits folder
+    Args: 
+    wordlist (list of strings): a list of abstract words from get_abstract_words()
+    stop_terms (list of strings): a list of words to ignore ("the", "a", "of"....)
+    reddit_vibe (string): a string corresponding to tsv filename in the /subreddits folder
 
+    Returns:
+    int: a total vibe value (can be positive or negative)
     """
     # first remove the stop terms
     for st in stop_terms:
@@ -87,7 +118,7 @@ def vibe_check(wordlist, stop_terms, reddit_vibe):
     df_abs = pd.DataFrame(wordlist, columns=['term']).value_counts('term').reset_index().rename(columns={0: 'count'})
 
     # make reddit comparison data frame
-    df_reddit = pd.read_csv('subreddits/'+ reddit_vibe + '.tsv', sep='\t', header=None, names=['term', 'mean_sentiment', 'std_sentiment'])
+    df_reddit = pd.read_csv(scivibes_dir + '/subreddits/'+ reddit_vibe + '.tsv', sep='\t', header=None, names=['term', 'mean_sentiment', 'std_sentiment'])
 
     # find intersection of two data frames based on 'term' column
     df_int = pd.merge(df_abs, df_reddit, how='inner', on=['term'])
@@ -102,12 +133,14 @@ def vibe_check(wordlist, stop_terms, reddit_vibe):
 def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     """Returns a list of 3 most- and least-positive vibes and their values.
 
-    inputs: 
-    wordlist = list of abstract words
-    stop_terms: list of words to ignore ("the", "a", "of"....)
-    subreddits: list of subreddits to source vibes from
-    reddit2vibe: dictionary converting subreddit names to assigned vibes
+    Args: 
+    wordlist (list of strings): a list of abstract words from get_abstract_words()
+    stop_terms (list of strings): a list of words to ignore ("the", "a", "of"....)
+    subreddits (list of strigs): list of subreddits to source vibes from
+    reddit2vibe (dictionary): a dictionary converting subreddit names to assigned vibes
 
+    Returns:
+    list: top 3 vibes and their values + bottom 3 vibes and their values 
     """
     # create dictionary of vibes and values
     vibe_dict = {}
@@ -124,5 +157,3 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     most = vibe_dict[-3:]
     return([most, least])
 
-
-    return wordlist_flat
