@@ -1,0 +1,231 @@
+AAO,Australian Astronomical Observatory
+AAT,Anglo Australian Telescope
+AAS,American Astronomical Society
+AGB,asymptotic giant branch
+AGN,active galactic nucleus
+AGNs,active galactic nuclei
+AO,adaptive optics
+ASAS,all sky automated survey
+AU,astronomical unit
+BCD,blue compact dwarf
+BCDs,blue compact dwarves
+BD,brown dwarf
+BDs,brown dwarves
+BH,black hole
+BHs,black holes
+BHC,black hole candidate
+BHCs,black hole candidates
+BHB,blue horizontal branch
+CDM,cold dark matter
+CEMP,carbon enhanced metal poor
+CFHT,Canada France Hawaii Telescope
+CIB,cosmic infrared background
+CIBR,cosmic infrared background radiation
+CMD,color magnitude diagram
+CME,coronal mass ejection
+CMEs,coronal mass ejections
+CNO,carbon nitrogen oxygen
+CSE,circumstellar envelope
+CV,cataclysmic variable
+CVs,cataclysmic variables
+DDEB,double lined eclipsing binary
+DDEBs,double lined eclipsing binaries
+DM,dark matter
+DN,dwarf nova
+DNS,double neutron star
+DOG,dust obscured galaxy
+DS,dwarf star
+DSS,digitized sky survey
+EELT,European Extremely Large Telescope
+ECA,Earth crossing asteroid
+ECAs,Earth crossing asteroids
+EGP,extrasolar giant planet
+EGP,extrasolar giant planets
+ELT,extremely large telescope
+EMP,extremely metal poor
+ESA,European Space Agency
+ESO,European Southern Observatory
+EUV,extreme ultra violet
+FEB,falling evaporating body
+FIR,far infra red
+FITS,flexible image transport system
+FLAMES,fibre large array multi element spectrograph
+FMO,fast moving object
+FMOs,fast moving objects
+FOCAS,faint object camera and spectrograph
+FOV,field of view
+FTL,faster than light
+GBT,Green Bank telescope
+GCR,galactic cosmic rays
+GDS,great dark spot
+GMC,giant molecular cloud
+GMF,galactic magnetic field
+GR,general relativity
+GRB,gamma ray burst
+GRBs,gamma ray bursts
+GW,gravitational wave
+GWs,gravitational waves
+HARPS,High Accuracy Radial velocity Planet Searcher
+HB,horizontal branch
+HBRP,high magnetic field radio pulsar
+HCS,heliospheric current sheet
+HDF,Hubble deep field
+HF,high frequency
+HLIRG,hyper luminous infra red galaxy
+HMGB,high mass gamma ray binary
+HMGBs,high mass gamma ray binaries
+HMPO,high mass proto stellar object
+HPMS,high proper motion star
+HST,Hubble Space Telescope
+HTRA,high time resolution astrophysics
+HVC,high velocity cloud
+HVCs,high velocity clouds
+HVS,high velocity star
+HVSs,high velocity stars
+IAU,international astronomical union
+ICRF,International Celestial Reference Frame
+ICRS,International Celestial Reference System
+IDP,interplanetary dust particle
+IDPs,interplanetary dust particles
+IDS,index catalog of double stars
+IEO,inner earth object
+IFN,integrated flux nebula
+IFN,intergrated flux nebulae
+IGM,intergalactic medium
+IMBH,intermediate mass black hole
+IMBHs,intermediate mass black holes
+IME,initial mass function
+INS,isolated neutron star
+INSs,isolated neutron stars
+IPMO,isolated planetary mass object
+IPMOs,isolated planetary mass objects
+IR,infra red
+IRAC,infra red array camera
+IRAF,image reduction and analysis facility
+IRDC,infra red dark cloud
+IRS,infra red spectrograph
+IRX,infra red excess
+ISM,interstellar medium
+JD,Julian date
+JPL,Jet Propulsion Laboratory
+JWST,Just Wonderful Space Telescope
+KBO,Kuiper Belt object
+KBOs,Kuiper Belt objects
+LBV,luminous blue variable
+LBVs,luminous blue variables
+LCDM,lambda cold dark matter
+LDN,large dark nebula
+LDNs,large dark nebulae
+LEO,low Earth orbit
+LF,luminosity function
+LIC,local interstellar cloud
+LIGO,Laser Interferometer Gravitational Wave Observatory
+LINER,low ionization nuclear emission region
+LINERs,low ionization nuclear emission regions
+LIRG,luminous infrared galaxy
+LIRGs,luminous infrared galaxies
+LISA,Laser Interferometer Space Antenna
+LLAGN,low luminosity active galactic nucleus
+LLAGNs,low luminosity active galactic nuclei
+LMC,large Magellanic cloud
+LMS,lower main sequence star
+LMXB,low mass x-ray binary
+LMXBs,low mass x-ray binaries
+LOFAR,low frequency array
+LPV,long period variable
+LPVs,long period variables
+LRG,luminous red galaxy
+LSST,Legacy Survey of Space and time
+LST,local sidereal time
+LTE,local thermodynamic equilibrium
+MACHO,massive compact halo object
+MACHOS,massive compact halo objects
+MAGIC,Major Atmospheric Gamma-ray Imaging Cherenkov telescope
+MASER,microwave background anisotropy probe
+MAVEN,Mars Atmosphere and Volatile Evolution
+MBA,main belt asteroid
+MBAs,main belt asteroids
+MBH,massive black hole
+MBHs,massive black holes
+MER,mars exploration rover
+MIRI,mid infra red instrument
+MJD,modified julian date
+MMR,mean motion resonance
+MMR,mean motion resonances
+MOID,minimum orbit intersection distance
+MPC,minor planet center
+MRI,magnetorotational instability
+MSP,millisecond pulsar
+MSPs,millisecond pulsars
+MW,milky way
+MWB,magnetic white dwarf
+MWBs,magnetic white dwarfs
+MXRB,massive x-ray binary
+MXRBs,massive x-ray binaries
+MYSO,massive young stellar object
+MYSOs,massive young stellar objects
+NEO,near earth object
+NEOs,near earth objects
+NEA,near earth asteroid
+NEAs,near earth asteroids
+NICMOS,Near Infrared Camera Multi Object Spectrometer
+NIR,near infra red
+NIRCam,near infra red camera
+NIRSpec,near infra red spectrograph
+NIST,national institute of standards and technology
+NLAGN,narrow line active galactic nucleus
+NLAGNs,narrow line active galactic nuclei
+NLR,narrow line region
+NLTE,non local thermodynamic equilibrium
+NOAO,National Optical Astronomy Observatories
+NS,neutron star
+NSs,neutron stars
+OC,open cluster
+OCO,oort cloud object
+OGLE,Optical Gravitational Lensing Experiment
+OSIRIS-REx,Origins Spectral Interpretation Resource Identification Security Regolith Explorer
+OSS,ohio sky survey
+PMS,pre main sequence
+PN,planetary nebula
+PNs,planetary nebulae
+PNLF,planetary nebula luminosity function
+PNN,planetary nebula nucleus
+PNNs,planetary nebula nuclei
+PNNV,planetary nebula nucleus variable
+PNNVs,planetary nebula nucleus variables
+PPN,proto planetary nebula
+PRE,photospheric radius expansion
+PSF,point spread function
+PSR,pulsar
+PVO,pioneer venus orbiter
+PWD,pre white dwarf
+PWN,pulsar wind nebula
+QE,quantum efficiency
+QGP,quark gluon plasma
+QPO,quasi periodic oscillation
+QPOs,quasi periodic oscillations
+RA,right ascension
+RAMBO,robust association of massive baryonic objects
+RAMBOs,robust association of massive baryonic objects
+RAS,royal astronomical society
+RC,red clump
+RCG,red clump giant
+RDI,radiation driven implosion
+RGB,red giant branch
+RLQ,radio loud quasar
+RLQs,radio loud quasars
+RORF,radio optical reference Frame
+RRAT,rotating radio transient
+RRATs,rotating radio transients
+RSG,red super giant
+RSGs,red super giants
+RSN,radio supernova
+RV,radial velocity
+RVs,radial velocities
+SAAO,South African Astronomical Observatory
+SB,spectroscopic binary
+SBs,spectroscopic binaries
+TNO,trans Neptunian object
+TNOs,trans Neptunian objects
+UHJ,ultra hot Jupiter
+UHJs,ultra hot Jupiters
