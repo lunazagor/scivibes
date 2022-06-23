@@ -112,8 +112,8 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     subreddits (list of strigs): list of subreddits to source vibes from
     reddit2vibe (dictionary): a dictionary converting subreddit names to assigned vibes
 
-    Return:
-    list: list of top 3 vibes and their values + bottom 3 vibes and their values 
+    Returns:
+    list: top 3 vibes and their values + bottom 3 vibes and their values 
     """
     # create dictionary of vibes and values
     vibe_dict = {}
