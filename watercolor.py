@@ -1,5 +1,10 @@
 import cairo, sys, argparse, copy, math, random
 
+name = "StephBoss"
+
+vibe_score = [[('anime', 367), ('musical', 445), ('science', 451)],
+ [('cringe', -71), ('Tumblr', -56), ('wholesome', -51)]]
+
 def color_picker(vibe_score):
 
     color_samples = {'geek': {'High': (24,106,59), 'Med': (46,204,113), 'Low': (213, 245, 227)},
@@ -19,12 +24,16 @@ def color_picker(vibe_score):
     'science': {'High': (14, 98, 81), 'Med': (26, 188, 156), 'Low': (163, 228, 215)}
     }
     
-    c_1 = color_samples[vibe_score[0][0]]['High']
-    c_2 = color_samples[vibe_score[1][0]]['Med']
-    c_3 = color_samples[vibe_score[2][0]]['Low']
+    c_1 = color_samples[vibe_score[0][0][0]]['High']
+    c_2 = color_samples[vibe_score[0][1][0]]['Med']
+    c_3 = color_samples[vibe_score[0][2][0]]['Low']
+
+    c_4 = color_samples[vibe_score[1][0][0]]['High']
+    c_5 = color_samples[vibe_score[1][1][0]]['Med']
+    c_6 = color_samples[vibe_score[1][2][0]]['Low']
 
 
-    return c_1,c_2,c_3
+    return c_1,c_2,c_3,c_4,c_5,c_6
 
 float_gen = lambda a, b: random.uniform(a, b)
 # colors = []
@@ -83,7 +92,7 @@ def deform(shape, iterations, variance):
     return shape
 
 
-def main():
+def main(vibe_score, name):
     parser = argparse.ArgumentParser()
     parser.add_argument("--width", default=1000, type=int)
     parser.add_argument("--height", default=1500, type=int)
@@ -119,11 +128,10 @@ def main():
 
     cr.set_line_width(1)
 
-    vibe_score = [('anime', 367), ('musical', 445), ('science', 451)]
-
-    vibe_1, vibe_2, vibe_3 = color_picker(vibe_score)
+    vibe_1, vibe_2, vibe_3, vibe_4, vibe_5, vibe_6 = color_picker(vibe_score)
 
     colors = [list(vibe_1), list(vibe_2), list(vibe_3)]
+    anti_colors = [list(vibe_4), list(vibe_5), list(vibe_6)]
 
     for p in range(-int(height*.2), int(height*1.2), 60):
         cr.set_source_rgba((random.choice(colors)[0])/255, (random.choice(colors)[1])/255, (random.choice(colors)[2])/255, shapealpha)
@@ -139,7 +147,23 @@ def main():
                 cr.line_to(layer[i][0], layer[i][1])
             cr.fill()
 
-    ims.write_to_png('YourVibe_'+str(int(random.randint(0, 500))) + '.png')
+    ims.write_to_png(name+'_Vibe'+'.png')
+
+    for p in range(-int(height*.2), int(height*1.2), 60):
+        cr.set_source_rgba((random.choice(anti_colors)[0])/255, (random.choice(anti_colors)[1])/255, (random.choice(anti_colors)[2])/255, shapealpha)
+
+        shape = octagon(random.randint(-100, width+100), p, random.randint(100, 300))
+        baseshape = deform(shape, basedeforms, initial)
+
+        for j in range(random.randint(minshapes, maxshapes)):
+            tempshape = copy.deepcopy(baseshape)
+            layer = deform(tempshape, finaldeforms, deviation)
+
+            for i in range(len(layer)):
+                cr.line_to(layer[i][0], layer[i][1])
+            cr.fill()
+
+    ims.write_to_png(name+'_AntiVibe'+'.png')
 
 if __name__ == "__main__":
-    main()
+    main(vibe_score, name)
