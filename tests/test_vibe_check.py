@@ -40,10 +40,13 @@ def test_total_vibe_check():
     assert len(most) == 3
     assert len(least) == 3
 
-print("Testing vibe check")
-test_vibe_check()
+
+## Uncomment below if running tests manually
+
+# print("Testing vibe check")
+# test_vibe_check()
 
 
-print("Testing total vibe check")
-test_total_vibe_check()
+# print("Testing total vibe check")
+# test_total_vibe_check()
 
