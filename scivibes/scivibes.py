@@ -25,29 +25,30 @@ def flatten_list(unflat_list):
     return [item for sublist in unflat_list for item in sublist]
 
 
-def get_abstract_words(author_ORCID):
+def get_abstracts(author_ORCID):
+
+    papers = list(ads.SearchQuery(orcid=author_ORCID))
+    abslist = [paper.abstract for paper in papers]
+    noempty_abslist = [abst for abst in abslist if abst]
+
+    return noempty_abslist
+
+
+def get_abstract_words(abslist):
     """Get all words from abstracts.
 
     Returns a list of every single word in the abstracts of the author. Strips punctuation, replaces common
     abbreviations/acronyms with constituent words, and lowercases everything.
 
     Args: 
-        author_ORCID (string): a string containing the ORCID of interest
+        abslist (list): a list containing the abstracts in question, created by get_papers.
 
     Returns:
         list: a list of words in all abstracts in lower-case with punctuation removed and common acronyms expanded.
     """
 
-    papers = list(ads.SearchQuery(orcid=author_ORCID))
-
-    # the below returns a list of lists...
-    abslist = [paper.abstract for paper in papers]
-
-    # ...and this removes empty abstracts...
-    noempty_abslist = [abst for abst in abslist if abst]
-
-    # ...then we split all the abstracts up into individual words...
-    allwords_raw = [re.split(" |-", f) for f in noempty_abslist]
+    # we split all the abstracts up into individual words...
+    allwords_raw = [re.split(" |-", f) for f in abslist]
 
     # ...and this flattens the list.
     allwords_flat = flatten_list(allwords_raw)
@@ -140,7 +141,7 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     reddit2vibe (dictionary): a dictionary converting subreddit names to assigned vibes
 
     Returns:
-    list: top 3 vibes and their values + bottom 3 vibes and their values 
+    list: sorted values of vibes (ascending)
     """
     # create dictionary of vibes and values
     vibe_dict = {}
@@ -152,8 +153,6 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     # sort dictionary by value
     vibe_dict = sorted(vibe_dict.items(), key=operator.itemgetter(1))    
 
-    # return most and least vibes
-    least = vibe_dict[0:3]
-    most = vibe_dict[-3:]
-    return([most, least])
+    # return vibes
+    return(vibe_dict)
 
