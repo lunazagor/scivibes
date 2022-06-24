@@ -3,6 +3,9 @@ import os
 import glob
 import json
 
+#scivibes_dir = os.path.dirname(__file__)
+#datadir = os.path.join(scivibes_dir, '')
+
 def test_vibe_check():
     """
     Tests the basic functionality of scivibes.test_vibe_check() in scivibes.py
@@ -31,7 +34,10 @@ def test_total_vibe_check():
 
     # grab all the subreddit names & dictionary of subreddits to vibes
     subreddits = [os.path.basename(x[:-4]) for x in glob.glob('../scivibes/subreddits/*.tsv')]
-    reddit2vibe = json.load(open("../scivibes/reddit2vibe.txt"))
+
+    filepath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'scivibes/reddit2vibe.txt'))
+    print(filepath)
+    reddit2vibe = json.load(open(filepath))
 
     # run function 
     [most, least] = scivibes.total_vibe_check(test_wordlist, test_stop, subreddits, reddit2vibe)
