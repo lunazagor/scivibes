@@ -28,16 +28,22 @@ def test_total_vibe_check():
     for returning a single subreddit vibe.
     """
     # define input 
-    # will want to import these + subreddits + reddit2vibe!
-    test_wordlist = ["this", "is", "a", "list", "of", "words", "for", "testing"]
-    test_stop = ["this", "is", "a", "list", "of", "words", "for", "testing"]
+    test_wordlist = open("test_wordlist.txt",'r').read().splitlines()
 
-    # grab all the subreddit names & dictionary of subreddits to vibes
-    subreddits = [os.path.basename(x[:-4]) for x in glob.glob('../scivibes/subreddits/*.tsv')]
+    # import stopword list
+    filepath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'scivibes/stopwords.txt'))
+    print(filepath)
+    test_stop = open(filepath,'r').read().splitlines()
 
+    # grab the dictionary of subreddits to vibes
     filepath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'scivibes/reddit2vibe.txt'))
     print(filepath)
     reddit2vibe = json.load(open(filepath))
+
+    # grab all the available subreddits to compare
+    filepath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', 'scivibes/subreddits/*.tsv'))
+    print(filepath)
+    subreddits = [os.path.basename(x[:-4]) for x in glob.glob(filepath)]
 
     # run function 
     [most, least] = scivibes.total_vibe_check(test_wordlist, test_stop, subreddits, reddit2vibe)
@@ -55,4 +61,5 @@ def test_total_vibe_check():
 
 # print("Testing total vibe check")
 # test_total_vibe_check()
+
 
