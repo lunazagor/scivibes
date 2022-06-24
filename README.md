@@ -24,7 +24,7 @@ This requirement is already specified in requirements.txt, so cloning the git di
 ```
 pip install scivibes -r requirements.txt
 ```
-should take care of all dependencies. 
+within the ditectory should take care of all dependencies. 
 
 ## Notes for running
 
