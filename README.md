@@ -1,6 +1,6 @@
 # SciVibes 1.0.1
 
-This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu/) abstracts! This fork is for folks who can't install pycairo.
+This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu/) abstracts! This fork is for folks who can't install pycairo and only produces a histogram of results instead of the cool visualisation.
 
 Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, and Luna Zagorac.
 
