@@ -1,3 +1,4 @@
+import ads
 
 def test_get_abstracts():
     from scivibes import get_abstracts
