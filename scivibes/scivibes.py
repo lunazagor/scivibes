@@ -25,11 +25,16 @@ def flatten_list(unflat_list):
     return [item for sublist in unflat_list for item in sublist]
 
 
-def get_papers(author_ORCID):
-    return list(ads.SearchQuery(orcid=author_ORCID))
+def get_abstracts(author_ORCID):
+
+    papers = list(ads.SearchQuery(orcid=author_ORCID))
+    abslist = [paper.abstract for paper in papers]
+    noempty_abslist = [abst for abst in abslist if abst]
+
+    return noempty_abslist
 
 
-def get_abstract_words(papers):
+def get_abstract_words(abslist):
     """Get all words from abstracts.
 
     Returns a list of every single word in the abstracts of the author. Strips punctuation, replaces common
@@ -42,14 +47,8 @@ def get_abstract_words(papers):
         list: a list of words in all abstracts in lower-case with punctuation removed and common acronyms expanded.
     """
 
-    # the below returns a list of lists...
-    abslist = [paper.abstract for paper in papers]
-
-    # ...and this removes empty abstracts...
-    noempty_abslist = [abst for abst in abslist if abst]
-
-    # ...then we split all the abstracts up into individual words...
-    allwords_raw = [re.split(" |-", f) for f in noempty_abslist]
+    # we split all the abstracts up into individual words...
+    allwords_raw = [re.split(" |-", f) for f in abslist]
 
     # ...and this flattens the list.
     allwords_flat = flatten_list(allwords_raw)
