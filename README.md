@@ -6,7 +6,7 @@ Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, and Luna Zagorac.
 
 [![codeastro](https://img.shields.io/badge/Made%20at-Code/Astro-blueviolet.svg)](https://semaphorep.github.io/codeastro/)
 
-## Notes for running
+## Notes for installing
 
 This code requires that you provide your own ADS API key. This is easy to generate: go to your account settings and choose "API Token" on the right-hand menu, then click the "Generate a new key" button.
 
@@ -18,6 +18,17 @@ pip install werkzeug==1.0.1
 ```
 
 This works around the issue noted in [this](https://github.com/andycasey/ads/pull/119) pull request.
+
+This requirement is already specified in requirements.txt, so cloning the git directory onto your computer and running
+
+```
+pip install scivibes -r requirements.txt
+```
+should take care of all dependencies. 
+
+## Notes for running
+
+Please see demo Jupyter notebook to test your vibes!
 
 ## Sentiment Analysis Data Source
 
