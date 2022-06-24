@@ -141,7 +141,7 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     reddit2vibe (dictionary): a dictionary converting subreddit names to assigned vibes
 
     Returns:
-    dictionary: sorted values of vibes
+    list: sorted values of vibes (ascending)
     """
     # create dictionary of vibes and values
     vibe_dict = {}
