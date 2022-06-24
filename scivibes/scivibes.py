@@ -141,7 +141,7 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     reddit2vibe (dictionary): a dictionary converting subreddit names to assigned vibes
 
     Returns:
-    list: top 3 vibes and their values + bottom 3 vibes and their values 
+    dictionary: sorted values of vibes
     """
     # create dictionary of vibes and values
     vibe_dict = {}
@@ -153,8 +153,6 @@ def total_vibe_check(wordlist, stop_terms, subreddits, reddit2vibe):
     # sort dictionary by value
     vibe_dict = sorted(vibe_dict.items(), key=operator.itemgetter(1))    
 
-    # return most and least vibes
-    least = vibe_dict[0:3]
-    most = vibe_dict[-3:]
-    return([most, least])
+    # return vibes
+    return(vibe_dict)
 

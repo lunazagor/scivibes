@@ -46,11 +46,10 @@ def test_total_vibe_check():
     subreddits = [os.path.basename(x[:-4]) for x in glob.glob(filepath)]
 
     # run function 
-    [most, least] = scivibes.total_vibe_check(test_wordlist, test_stop, subreddits, reddit2vibe)
+    test_vibes = scivibes.total_vibe_check(test_wordlist, test_stop, subreddits, reddit2vibe)
 
     # the vibe should be zero due to all stop words being removed
-    assert len(most) == 3
-    assert len(least) == 3
+    assert len(test_vibes) == len(subreddits)
 
 
 ## Uncomment below if running tests manually
