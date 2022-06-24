@@ -21,6 +21,12 @@ within the ditectory should take care of all dependencies.
 
 Please see demo Jupyter notebook to test your vibes!
 
+You can also run the software directly from the terminal. You need either the author's name or ORCID ID (the example includes both).
+```
+python scivibes_.py --ads_config_token [Your ADS Configuration Token] --ORCID [Your ORCID id here] --author_name [Your author name here] --filename [optional name for file]
+```
+The file is saved in the format "filename_Vibe.png"
+
 ## Sentiment Analysis Data Source
 
 The files in the subreddits/ folder were created by the authors of the [SocialSent](https://nlp.stanford.edu/projects/socialsent/) project. The process between producing these domain-specific lexicons is described in their paper, [Inducing Domain-Specific Sentiment Lexicons from Unlabeled Corpora](https://arxiv.org/abs/1606.02820).
