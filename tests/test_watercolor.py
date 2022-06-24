@@ -34,12 +34,12 @@ def test_color_picker():
     [('cringe', -48), ('wholesome', -13), ('Tumblr', -12)]]
 
     #select appropriate colors for each vibe and anti_vibe
-    exp_c_1 = color_samples[vibe_score[0][0][0]]['High']
-    exp_c_2 = color_samples[vibe_score[0][1][0]]['Med']
-    exp_c_3 = color_samples[vibe_score[0][2][0]]['Low']
-    exp_c_4 = color_samples[vibe_score[1][0][0]]['High']
-    exp_c_5 = color_samples[vibe_score[1][1][0]]['Med']
-    exp_c_6 = color_samples[vibe_score[1][2][0]]['Low']
+    exp_c_1 = color_samples[vibe_score[-1][0]]['High']
+    exp_c_2 = color_samples[vibe_score[-2][0]]['Med']
+    exp_c_3 = color_samples[vibe_score[-3][0]]['Low']
+    exp_c_4 = color_samples[vibe_score[0][0]]['High']
+    exp_c_5 = color_samples[vibe_score[1][0]]['Med']
+    exp_c_6 = color_samples[vibe_score[2][0]]['Low']
 
     #use scivibes.color_picker()
     c_1,c_2,c_3,c_4,c_5,c_6 = scivibes.color_picker(vibe_score)

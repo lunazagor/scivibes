@@ -10,7 +10,7 @@ def color_picker(vibe_score):
     intense color).
 
     Args:
-        vibe_score (list of lists of tuples): A list containing two lists (the top 3 vibes and the 
+        vibe_score (lists of tuples): A list containing two lists (the top 3 vibes and the 
         bottom 3 vibes). 
 
     Returns:
@@ -38,14 +38,14 @@ def color_picker(vibe_score):
     }
     
     #selecting the appropriate colors for each vibe
-    c_1 = color_samples[vibe_score[0][0][0]]['High']
-    c_2 = color_samples[vibe_score[0][1][0]]['Med']
-    c_3 = color_samples[vibe_score[0][2][0]]['Low']
+    c_1 = color_samples[vibe_score[-1][0]]['High']
+    c_2 = color_samples[vibe_score[-2][0]]['Med']
+    c_3 = color_samples[vibe_score[-3][0]]['Low']
 
     #selecting the appropriate colors for each antivibe
-    c_4 = color_samples[vibe_score[1][0][0]]['High']
-    c_5 = color_samples[vibe_score[1][1][0]]['Med']
-    c_6 = color_samples[vibe_score[1][2][0]]['Low']
+    c_4 = color_samples[vibe_score[0][0]]['High']
+    c_5 = color_samples[vibe_score[1][0]]['Med']
+    c_6 = color_samples[vibe_score[2][0]]['Low']
 
 
     return c_1,c_2,c_3,c_4,c_5,c_6
@@ -142,7 +142,7 @@ def view_vibes(vibe_score, name):
     Uses the other functions (octagon, deform, and color_picker) to build the image.
 
     Args:
-        vibe_score (list of list of tuples): list containing two lists each containing 3 tuples 
+        vibe_score (list of tuples): list containing two lists each containing 3 tuples 
         defining the rgb values for the top 3 vibes and lowest 3 vibes. This is the output from the
         total_vibe_check().
         name (string): name for the resulting image file. Images are name in the format (name_Vibe) 
