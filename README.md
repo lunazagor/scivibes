@@ -18,3 +18,7 @@ pip install werkzeug==1.0.1
 ```
 
 This works around the issue noted in [this](https://github.com/andycasey/ads/pull/119) pull request.
+
+## Sentiment Analysis Data Source
+
+The files in the subreddits/ folder were created by the authors of the [SocialSent](https://nlp.stanford.edu/projects/socialsent/) project. The process between producing these domain-specific lexicons is described in their paper, [Inducing Domain-Specific Sentiment Lexicons from Unlabeled Corpora](https://arxiv.org/abs/1606.02820).
