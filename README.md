@@ -1,6 +1,6 @@
 # SciVibes 1.0.1
 
-This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu/) abstracts!
+This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu/) abstracts! This fork is for folks who can't install pycairo and only produces a histogram of results instead of the cool visualisation.
 
 Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, and Luna Zagorac.
 
@@ -10,22 +10,19 @@ Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, and Luna Zagorac.
 
 This code requires that you provide your own ADS API key. This is easy to generate: go to your account settings and choose "API Token" on the right-hand menu, then click the "Generate a new key" button.
 
-All the dependencies are specified in requirements.txt, so cloning the git directory onto your computer and running
+To run:
 
 ```
-pip install scivibes -r requirements.txt
+git clone https://github.com/astronomerritt/uglyscivibes.git
+cd uglyscivibes
+pip install -e .
+pip install -r requirements.txt 
 ```
-within the ditectory should take care of all dependencies. 
+within the directory should take care of all dependencies. 
 
 ## Notes for running
 
-Please see demo Jupyter notebook to test your vibes!
-
-You can also run the software directly from the terminal. You need either the author's name or ORCID ID (the example includes both).
-```
-python scivibes_.py --ads_config_token [Your ADS Configuration Token] --ORCID [Your ORCID id here] --author_name [Your author name here] --filename [optional name for file]
-```
-The file is saved in the format "filename_Vibe.png"
+Then open the demo notebook, insert your own API token in the required cell, and run :)
 
 ## Sentiment Analysis Data Source
 
