@@ -15,17 +15,17 @@ All the dependencies are specified in requirements.txt, so cloning the git direc
 ```
 pip install scivibes -r requirements.txt
 ```
-within the ditectory should take care of all dependencies. 
+within the directory should take care of all dependencies. 
 
 ## Notes for running
 
 Please see demo Jupyter notebook to test your vibes!
 
-You can also run the software directly from the terminal. You need either the author's name or ORCID ID (the example includes both).
+You can also run the software directly from the terminal. You need either the author's name or ORCID ID (the example includes both, please only use one!).
 ```
 python scivibes_.py --ads_config_token [Your ADS Configuration Token] --ORCID [Your ORCID id here] --author_name [Your author name here] --filename [optional name for file]
 ```
-The file is saved in the format "filename_Vibe.png"
+The file is saved in the format "filename_Vibe.png". The vibestogram of total vibes is saved as "vibestogram.jpg".
 
 ## Sentiment Analysis Data Source
 
