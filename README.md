@@ -33,4 +33,4 @@ The files in the subreddits/ folder were created by the authors of the [SocialSe
 
 ## Vibe Image Data Source
 
-The code used to create the Vibe and Anti_Vibe images is based on this [package](https://github.com/erdavids/WatercolorClouds) by Eric Davidson.
+The code used to create the Vibe and Anti_Vibe images is based on the [WatercolorClouds](https://github.com/erdavids/WatercolorClouds) package by Eric Davidson.
