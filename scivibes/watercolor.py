@@ -2,7 +2,7 @@ import cairo, copy, math, random
 
 float_gen = lambda a, b: random.uniform(a, b)
 
-def color_picker(vibe_score):
+def color_picker(vibe_score, vibe_color):
 
     """Color Picker 
     
@@ -12,6 +12,8 @@ def color_picker(vibe_score):
     Args:
         vibe_score (lists of tuples): A list containing two lists (the top 3 vibes and the 
         bottom 3 vibes). 
+        vibe_color (dict): A dictionary connecting vibes to colors (different color intensities
+        for top 3 ranks)
 
     Returns:
         (array): 6 arrays containg the rgb codes for colors used in the abstract art. First three
@@ -19,33 +21,15 @@ def color_picker(vibe_score):
 
     """
 
-    #dictionary defining the vibes and the colors corresponding to their rank
-    color_samples = {'geeky': {'High': (24,106,59), 'Med': (46,204,113), 'Low': (213, 245, 227)},
-    'fantasy': {'High': (74, 35, 90), 'Med': (165, 105, 189), 'Low': (232, 218, 239)},
-    'anarcho-capitalist': {'High': (66, 73, 73), 'Med': (127, 140, 141), 'Low': (242, 244, 244)},
-    'cursed': {'High': (176, 58, 46), 'Med': (231, 76, 60), 'Low': (245, 183, 177)},
-    'musical': {'High': (81, 46, 95), 'Med': (155, 89, 182), 'Low': (215, 189, 226)},
-    'skater': {'High': (21, 67, 96), 'Med': (41, 128, 185), 'Low': (169, 204, 227)},
-    'cute': {'High': (245, 101, 201), 'Med': (243, 152, 216), 'Low': (248, 194, 232)},
-    'Disney': {'High': (40, 116, 166), 'Med': (93, 173, 226), 'Low': (174, 214, 241)},
-    'jock': {'High': (175, 96, 26), 'Med': (230, 126, 34), 'Low': (245, 203, 167)},
-    'dramatic': {'High': (243, 156, 18), 'Med': (248, 196, 113), 'Low': (250, 215, 160)},
-    'British': {'High': (146, 43, 33), 'Med': (205, 97, 85), 'Low': (230, 176, 170)},
-    'funny': {'High': (241, 196, 15), 'Med': (247, 220, 111), 'Low': (249, 231, 159)},
-    'random': {'High': (46, 64, 83), 'Med': (93, 109, 126), 'Low': (174, 182, 191)},
-    'anime': {'High': (11, 83, 69), 'Med': (22, 160, 133), 'Low': (115, 198, 182)},
-    'gamer': {'High': (14, 98, 81), 'Med': (26, 188, 156), 'Low': (163, 228, 215)}
-    }
-    
     #selecting the appropriate colors for each vibe
-    c_1 = color_samples[vibe_score[-1][0]]['High']
-    c_2 = color_samples[vibe_score[-2][0]]['Med']
-    c_3 = color_samples[vibe_score[-3][0]]['Low']
+    c_1 = vibe_color[vibe_score[-1][0]]['High']
+    c_2 = vibe_color[vibe_score[-2][0]]['Med']
+    c_3 = vibe_color[vibe_score[-3][0]]['Low']
 
     #selecting the appropriate colors for each antivibe
-    c_4 = color_samples[vibe_score[0][0]]['High']
-    c_5 = color_samples[vibe_score[1][0]]['Med']
-    c_6 = color_samples[vibe_score[2][0]]['Low']
+    c_4 = vibe_color[vibe_score[0][0]]['High']
+    c_5 = vibe_color[vibe_score[1][0]]['Med']
+    c_6 = vibe_color[vibe_score[2][0]]['Low']
 
 
     return c_1,c_2,c_3,c_4,c_5,c_6
@@ -135,7 +119,7 @@ def deform(shape, iterations, variance):
     return shape
 
 
-def view_vibes(vibe_score, name):
+def view_vibes(vibe_score, name, vibe_color):
 
     """main
 
@@ -147,6 +131,8 @@ def view_vibes(vibe_score, name):
         total_vibe_check().
         name (string): name for the resulting image file. Images are name in the format (name_Vibe) 
         and (name_AntiVibe)
+        vibe_color (dict): A dictionary connecting vibes to colors (different color intensities 
+        for top 3 ranks)
 
     Return:
         none; two png images are saved to the scivibes folder.
@@ -184,7 +170,7 @@ def view_vibes(vibe_score, name):
     cr.set_line_width(1)
 
     # selecting vibe colors
-    vibe_1, vibe_2, vibe_3, vibe_4, vibe_5, vibe_6 = color_picker(vibe_score)
+    vibe_1, vibe_2, vibe_3, vibe_4, vibe_5, vibe_6 = color_picker(vibe_score,vibe_color)
 
     colors = [list(vibe_1), list(vibe_2), list(vibe_3)]
     anti_colors = [list(vibe_4), list(vibe_5), list(vibe_6)]

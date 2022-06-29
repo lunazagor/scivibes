@@ -48,11 +48,14 @@ reddit2vibe = json.load(open("scivibes/reddit2vibe.txt"))
 #calculate Vibes
 tot_vibes = scivibes.total_vibe_check(new_wordlist, stop_terms, subreddits, reddit2vibe)
 
+# get vibe colors dictionary
+vibe_color = json.load(open("scivibes/vibe_color.txt"))
+
 # generate vibe plots
-scivibes.view_vibes(tot_vibes, args.filename)
+scivibes.view_vibes(tot_vibes, args.filename, vibe_color)
 
 # a handy histogram of vibes
-fig, ax = scivibes.plot_vibestogram(tot_vibes)
+fig, ax = scivibes.plot_vibestogram(tot_vibes,vibe_color)
 
-print("Your Vibes and Anti_Vibes have been Discovered!")
+print("Your Vibes, Anti_Vibes, Vibestogram have been Discovered!")
 
