@@ -2,7 +2,6 @@
 import string
 import ads
 import pandas as pd
-import glob
 import os 
 import operator 
 import re
