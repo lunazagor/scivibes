@@ -5,6 +5,8 @@ This is a scientific vibe estimator based on [ADS](https://ui.adsabs.harvard.edu
 Project for Code/Astro 2022 by Mireya Arora, Steph Merritt, and Luna Zagorac.
 
 [![codeastro](https://img.shields.io/badge/Made%20at-Code/Astro-blueviolet.svg)](https://semaphorep.github.io/codeastro/)
+[![GitHub Release](https://github-basic-badges.herokuapp.com/release/lunazagor/scivibes.svg)]()
+[![PyPI downloads](https://img.shields.io/pypi/dm/scivibes.svg)](https://pypistats.org/packages/scivibes)
 
 ## Notes for installing
 
